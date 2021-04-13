@@ -16,6 +16,8 @@ class Rational(n: Int, d: Int) {
     if (b == 0) a else gcd(b, a % b)
 }
 
+implicit def intToRational(x: Int): Rational = new Rational(x)
+
 val y = new Rational(3)
 println(y)
 
@@ -31,3 +33,7 @@ println(multiResult)
 val gcdResult = new Rational(77, 49)
 
 println(gcdResult)
+
+val intResult = 2 * oneHalf
+
+println(intResult)
