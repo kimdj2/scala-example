@@ -24,3 +24,20 @@ def grep(pattern: String) =
     if line.trim.matches(pattern)
   } println(file + ": " + line.trim)
 grep(".*gcd.*")
+
+
+def grep2(pattern: String) = 
+  for {
+    file <- filesHere
+    if file.getName.endsWith(".scala")
+    line <- fileLines(file)
+    trimmed = line.trim
+    if trimmed.matches(pattern)
+  } println(file + ": " + trimmed)
+grep2(".*gcd.*")
+
+def scalaFiles =
+  for {
+    file <- filesHere
+    if field.getName.endsWith(".scala")
+  } yield file
